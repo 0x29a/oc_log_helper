@@ -9,20 +9,24 @@
 
 ## Installation
 
+1. Install `python3-gi`:
+    ```
+    sudo apt install python3-gi
+    ```
 1. Install `oc_log_helper`:
     ```sh
-    pipx install oc_log_helper
+    pipx install oc_log_helper --system-site-packages
     ```
     or
     ```sh
-    pip install oc_log_helper
+    pip install oc_log_helper --system-site-packages
     ```
 1. Configure toggl:
     ```sh
     toggl config
     ```
     It'll ask for token. You can generate it at the bottom of [this page](https://track.toggl.com/profile).
-1. Add hotkey to quickly execute `oc_log_helper log`.
+1. Add hotkey to quickly execute `oc_log_helper log-work`.
 
 <!-- Badges -->
 
