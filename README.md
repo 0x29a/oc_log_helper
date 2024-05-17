@@ -21,11 +21,7 @@
     ```sh
     pip install oc_log_helper --system-site-packages
     ```
-1. Configure toggl:
-    ```sh
-    toggl config
-    ```
-    It'll ask for token. You can generate it at the bottom of [this page](https://track.toggl.com/profile).
+1. Add Toggl API token to `~/.toggl_token`.
 1. Add hotkey to quickly execute `oc_log_helper log-work`.
 
 <!-- Badges -->

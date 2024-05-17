@@ -3,8 +3,8 @@
 import re
 
 from gi.repository import Gtk, Gdk
-from toggl import api
 
+from .toggl import get_toggl_client
 
 class Prompt(Gtk.Dialog):
     def __init__(self, ticket, description="DESCRIPTION"):
@@ -46,13 +46,14 @@ class NewTaskWindow(Prompt):
         raise ValueError("No ticket found in the input string.")
 
     def create_time_entry(self, ticket, description):
-        new_entry = api.TimeEntry.start_and_save(
+        client = get_toggl_client()
+        client.startTimeEntry(
             description=description,
-            project=162120186,
-            tags=[self.extract_ticket(ticket)],
+            wid="4325196",
+            pid="162120186",
+            tag=self.extract_ticket(ticket),
         )
-        new_entry.save()
-        print("Created.")
+        print("Started tracking.")
 
 
 def show_prompt(prompt):

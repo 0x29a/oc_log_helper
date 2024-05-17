@@ -13,7 +13,7 @@ requires-python = ">=3.8"
 dependencies = [
   "click==8.0.3",
   "pendulum==2.1.2",
-  "togglCli==2.4.3",
+  "TogglPy @ git+https://github.com/0x29a/TogglPy.git@toggl_api_v9",
 ]
 
 [project.urls]

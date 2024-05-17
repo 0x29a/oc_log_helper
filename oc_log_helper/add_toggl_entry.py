@@ -2,11 +2,9 @@
 
 import re
 
-import pendulum
-
 from gi.repository import Gtk, Gdk
-from toggl import api
 
+from .toggl import get_toggl_client
 
 class Prompt(Gtk.Dialog):
     def __init__(self, ticket, description="Reading the comment.", minutes="1"):
@@ -55,14 +53,14 @@ class NewTaskWindow(Prompt):
         raise ValueError("No ticket found in the input string.")
 
     def create_time_entry(self, ticket, description, minutes):
-        new_entry = api.TimeEntry(
+        client = get_toggl_client()
+        client.createTimeEntry(
+            int(minutes) / 60,
+            wid="4325196",
             description=description,
-            start=pendulum.now() - pendulum.duration(minutes=int(minutes)),
-            stop=pendulum.now(),
-            project=162120186,
-            tags=[self.extract_ticket(ticket)],
+            project_id="162120186",
+            tag=self.extract_ticket(ticket),
         )
-        new_entry.save()
         print("Created.")
 
 

@@ -8,7 +8,7 @@ coverage:  ## Run tests with coverage
 
 deps:  ## Install dependencies
 	python -m pip install --upgrade pip
-	python -m pip install black coverage flake8 flit mccabe mypy pylint pytest tox tox-gh-actions click==8.0.3 pendulum==2.1.2 togglCli==2.4.3
+	python -m pip install black coverage flake8 flit mccabe mypy pylint pytest tox tox-gh-actions click==8.0.3 pendulum==2.1.2 git+https://github.com/0x29a/TogglPy.git@toggl_api_v9
 
 lint:  ## Lint and static-check
 	python -m flake8 oc_log_helper
